@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="600" Width="900">
+    <Grid Margin="0,0,10,18">
+        <Image x:Name = "img" HorizontalAlignment="Left" Height="368" Margin="297,10,0,0" VerticalAlignment="Top" Width="588"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="731,396,0,0" VerticalAlignment="Top" Height="52" Width="130" Click="Button_Click"/>
 
     </Grid>
 </Window>
