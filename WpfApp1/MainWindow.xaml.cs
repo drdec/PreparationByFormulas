@@ -41,6 +41,7 @@ namespace WpfApp1
         {
             _workWithData.CountQuestion++;
 
+
             var count = _workWithData.CountQuestion;
 
             QuestionText.Text = _workWithData.GetQuestion(count);
