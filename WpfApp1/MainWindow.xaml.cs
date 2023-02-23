@@ -31,9 +31,9 @@ namespace WpfApp1
                 img.Source = image;
                 img.Visibility = Visibility.Visible;
             }
-            catch (System.Exception)
+            catch (System.Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -41,10 +41,19 @@ namespace WpfApp1
         {
             _workWithData.CountQuestion++;
 
+            GetAnswer();
+        }
 
-            var count = _workWithData.CountQuestion;
+        private void ButtonPreviousQuestion(object sender, RoutedEventArgs e)
+        {
+            _workWithData.CountQuestion--;
 
-            QuestionText.Text = _workWithData.GetQuestion(count);
+            GetAnswer();
+        }
+
+        private void GetAnswer()
+        {
+            QuestionText.Text = _workWithData.GetQuestion();
             img.Visibility = Visibility.Collapsed;
         }
     }
