@@ -10,6 +10,7 @@
         <Image x:Name = "img" HorizontalAlignment="Left" Height="368" Margin="299,27,0,0" VerticalAlignment="Top" Width="588"/>
         <Button Content="Показать ответ" HorizontalAlignment="Left" Margin="642,401,0,0" VerticalAlignment="Top" Height="87" Width="221" Click="ShowAnswer"/>
         <TextBox x:Name="QuestionText" HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Здесь будет отображаться вопрос" VerticalAlignment="Top" Width="284" Height="289" FontSize="20" IsReadOnly="True"/>
-        <Button x:Name="NextAnswer" Content="Следующий вопрос" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Height="85" Width="184" Click="NextAnswer_Button"/>
+        <Button x:Name="NextAnswer" Content="Следующий вопрос" HorizontalAlignment="Left" Margin="152,321,0,0" VerticalAlignment="Top" Height="74" Width="142" Click="NextAnswer_Button"/>
+        <Button x:Name="PreviousQuestion" Content="Предыдущий вопрос" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Height="74" Width="137" Click="ButtonPreviousQuestion"/>
     </Grid>
 </Window>

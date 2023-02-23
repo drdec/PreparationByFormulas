@@ -8,7 +8,29 @@ namespace WpfApp1
     public class WorkWithData
     {
         private List<string> _questions;
-        public int CountQuestion { get; set; }
+        private int _countQuestion;
+
+        public int CountQuestion {
+            get
+            {
+                return _countQuestion;
+            } 
+            set 
+            {
+                if (value < _questions.Count && value > 0)
+                {
+                    _countQuestion = value;
+                }
+                else if (value <= 0)
+                {
+                    _countQuestion = _questions.Count;
+                }
+                else if (value >= _questions.Count)
+                {
+                    _countQuestion = 1;
+                }
+            }
+        }
 
         public WorkWithData()
         {
@@ -17,9 +39,9 @@ namespace WpfApp1
             CountQuestion = 0;
         }
 
-        public string GetQuestion(int count)
+        public string GetQuestion()
         {
-            return _questions[count - 1];
+            return _questions[_countQuestion - 1];
         }
 
         public List<string> GetListQuestions()
