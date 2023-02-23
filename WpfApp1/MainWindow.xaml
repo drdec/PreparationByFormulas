@@ -5,10 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="900">
+        Title="Подготовка к формулам физика" Height="1600" Width="900">
     <Grid Margin="0,0,10,18">
-        <Image x:Name = "img" HorizontalAlignment="Left" Height="368" Margin="297,10,0,0" VerticalAlignment="Top" Width="588"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="731,396,0,0" VerticalAlignment="Top" Height="52" Width="130" Click="Button_Click"/>
-
+        <Image x:Name = "img" HorizontalAlignment="Left" Height="368" Margin="299,27,0,0" VerticalAlignment="Top" Width="588"/>
+        <Button Content="Показать ответ" HorizontalAlignment="Left" Margin="642,401,0,0" VerticalAlignment="Top" Height="87" Width="221" Click="ShowAnswer"/>
+        <TextBox x:Name="QuestionText" HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Здесь будет отображаться вопрос" VerticalAlignment="Top" Width="284" Height="289" FontSize="20" IsReadOnly="True"/>
+        <Button x:Name="NextAnswer" Content="Следующий вопрос" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Height="85" Width="184" Click="NextAnswer_Button"/>
     </Grid>
 </Window>

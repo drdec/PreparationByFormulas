@@ -10,30 +10,41 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static int _cz = 1;
+
+        private WorkWithData _workWithData;
+        private WorkWithImage _workWithImage;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            _workWithData = new WorkWithData();
+            _workWithImage = new WorkWithImage();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ShowAnswer(object sender, RoutedEventArgs e)
         {
-            BitmapImage image = new BitmapImage();
-
-            var fileName = _cz + ".png";
-
-            using (FileStream stream = File.OpenRead(@"C:\Project\PreparationByFormulas\PreparationByFormulas\Image\" + fileName))
+            var count = _workWithData.CountQuestion;
+            try
             {
-                image.BeginInit();
-                image.StreamSource = stream;
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.EndInit();
+                var image = _workWithImage.FindPhoto(count);
+                img.Source = image;
+                img.Visibility = Visibility.Visible;
             }
+            catch (System.Exception)
+            {
 
-            _cz++;
-
-            img.Source = image;
+            }
         }
 
+        private void NextAnswer_Button(object sender, RoutedEventArgs e)
+        {
+            _workWithData.CountQuestion++;
+
+            var count = _workWithData.CountQuestion;
+
+            QuestionText.Text = _workWithData.GetQuestion(count);
+            img.Visibility = Visibility.Collapsed;
+        }
     }
 }
