@@ -1,7 +1,11 @@
-﻿using System.IO;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using WpfApp1.Service;
 
 namespace WpfApp1
 {
@@ -18,13 +22,26 @@ namespace WpfApp1
         {
             InitializeComponent();
 
-            _workWithData = new WorkWithData();
-            _workWithImage = new WorkWithImage();
+            var window = new DialogWindow();
+            window.ShowDialog();
+
+            try
+            {
+                _workWithData = new WorkWithData(window.IsRandom, window.IsTimeUse);
+                _workWithImage = new WorkWithImage();
+            }
+            catch (FileNotFoundException ex)
+            {
+                MessageBox.Show(ex.Message);
+                Process.GetCurrentProcess().Kill();
+            }
+
+            //MessageBox.Show(window.IsTimeUse + " " + window.IsRandom);
         }
 
         private void ShowAnswer(object sender, RoutedEventArgs e)
         {
-            var count = _workWithData.CountQuestion;
+            var count = _workWithData.NumberOfImage;
             try
             {
                 var image = _workWithImage.FindPhoto(count);
@@ -38,6 +55,11 @@ namespace WpfApp1
         }
 
         private void NextAnswer_Button(object sender, RoutedEventArgs e)
+        {
+            NextAnswerRelease();
+        }
+
+        private void NextAnswerRelease()
         {
             _workWithData.CountQuestion++;
 
