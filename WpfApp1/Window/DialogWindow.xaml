@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfApp1.DialogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="DialogWindow" Height="500" Width="500">
+    <Grid>
+        <Button x:Name="Ok" Content="Применить" HorizontalAlignment="Left" Margin="10,79,0,0" VerticalAlignment="Top" Height="40" Width="144" Click="Ok_Click"/>
+        <CheckBox x:Name="RandomQuestion" Content="Рандомный выбор вопросов?" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="17" Width="189"/>
+        <CheckBox x:Name="UseTime" Content="Проходить будем на время?(пока не работает)" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="283" Height="15"/>
+
+    </Grid>
+</Window>

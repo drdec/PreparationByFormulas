@@ -3,7 +3,7 @@ using System.IO;
 using System.Windows.Media.Imaging;
 using System;
 
-namespace WpfApp1
+namespace WpfApp1.Service
 {
     public class WorkWithImage
     {
@@ -11,7 +11,8 @@ namespace WpfApp1
 
         public WorkWithImage()
         {
-            _path = GetCurrentDirectoryPath("\\UserFiles\\Image");
+            var data = new WorkWithPath();
+            _path = data.GetCurrentDirectoryPath("\\UserFiles\\Image");
         }
 
         public BitmapImage FindPhoto(int item)
@@ -32,9 +33,8 @@ namespace WpfApp1
 
                 return image;
             }
-            catch(FileNotFoundException ex)
+            catch (FileNotFoundException)
             {
-                Console.WriteLine(ex.Message);
                 throw;
             }
         }
@@ -52,25 +52,6 @@ namespace WpfApp1
             }
         }
 
-        private string GetCurrentDirectoryPath(string item)
-        {
-            var path = Directory.GetCurrentDirectory();
-
-            while (!Directory.Exists(path + item))
-            {
-                for (int i = path.Length - 1, j = 0; i >= 0; i--, j++)
-                {
-                    if (path[i] == '\\')
-                    {
-                        path = path.Remove(path.Length - j - 1);
-                        break;
-                    }
-                }
-            }
-
-            path += item;
-
-            return path;
-        }
+       
     }
 }
