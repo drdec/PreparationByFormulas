@@ -20,10 +20,42 @@ namespace WpfApp1
 
         public MainWindow()
         {
+            Inizialize();
+
+            //InitializeComponent();
+
+            //var window = new DialogWindow();
+            //window.ShowDialog();
+
+            //try
+            //{
+            //    _workWithData = new WorkWithData(window.IsRandom, window.IsTimeUse);
+            //    _workWithImage = new WorkWithImage();
+            //}
+            //catch (FileNotFoundException ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //    Process.GetCurrentProcess().Kill();
+            //}
+
+            //MessageBox.Show(window.IsTimeUse + " " + window.IsRandom);
+        }
+
+        private void SettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+            Inizialize();
+        }
+
+        private void Inizialize()
+        {
             InitializeComponent();
+
+            QuestionText.Text = "Здесь будет отображаться вопрос";
+            img.Visibility = Visibility.Collapsed;
 
             var window = new DialogWindow();
             window.ShowDialog();
+
 
             try
             {
@@ -35,11 +67,34 @@ namespace WpfApp1
                 MessageBox.Show(ex.Message);
                 Process.GetCurrentProcess().Kill();
             }
-
-            //MessageBox.Show(window.IsTimeUse + " " + window.IsRandom);
         }
 
         private void ShowAnswer(object sender, RoutedEventArgs e)
+        {
+            //var count = _workWithData.NumberOfImage;
+            //try
+            //{
+            //    var image = _workWithImage.FindPhoto(count);
+            //    img.Source = image;
+            //    img.Visibility = Visibility.Visible;
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
+
+            ShowAnswer();
+        }
+
+        private void ShowAnswer_Key(object sender, KeyEventArgs key)
+        {
+            if (key.Key == Key.Enter)
+            {
+                ShowAnswer();
+            }
+        }
+
+        private void ShowAnswer()
         {
             var count = _workWithData.NumberOfImage;
             try
@@ -48,18 +103,13 @@ namespace WpfApp1
                 img.Source = image;
                 img.Visibility = Visibility.Visible;
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
 
         private void NextAnswer_Button(object sender, RoutedEventArgs e)
-        {
-            NextAnswerRelease();
-        }
-
-        private void NextAnswerRelease()
         {
             _workWithData.CountQuestion++;
 
@@ -78,5 +128,7 @@ namespace WpfApp1
             QuestionText.Text = _workWithData.GetQuestion();
             img.Visibility = Visibility.Collapsed;
         }
+
+        
     }
 }

@@ -5,12 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Подготовка к формулам физика" Height="700" Width="900">
-    <Grid Margin="0,0,10,18">
-        <Image x:Name = "img" HorizontalAlignment="Left" Height="368" Margin="299,27,0,0" VerticalAlignment="Top" Width="588"/>
-        <Button Content="Показать ответ" HorizontalAlignment="Left" Margin="642,401,0,0" VerticalAlignment="Top" Height="87" Width="221" Click="ShowAnswer"/>
-        <TextBox x:Name="QuestionText" HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Здесь будет отображаться вопрос" VerticalAlignment="Top" Width="284" Height="289" FontSize="20" IsReadOnly="True"/>
+        Title="Подготовка к формулам физика" Height="712" Width="967" ResizeMode="NoResize">
+    <Grid Margin="10,10,0,8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="305*"/>
+            <ColumnDefinition Width="652*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name = "img" HorizontalAlignment="Left" Height="368" Margin="38,27,0,0" VerticalAlignment="Top" Width="588" Grid.Column="1"/>
+        <Button Content="Показать ответ" HorizontalAlignment="Left" Margin="396,398,0,0" VerticalAlignment="Top" Height="87" Width="221" Click="ShowAnswer" Grid.Column="1"  KeyDown="ShowAnswer_Key" IsDefault="True"/>
+        <TextBox x:Name="QuestionText" HorizontalAlignment="Center" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="289" FontSize="20" IsReadOnly="True"/>
         <Button x:Name="NextAnswer" Content="Следующий вопрос" HorizontalAlignment="Left" Margin="152,321,0,0" VerticalAlignment="Top" Height="74" Width="142" Click="NextAnswer_Button"/>
         <Button x:Name="PreviousQuestion" Content="Предыдущий вопрос" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Height="74" Width="137" Click="ButtonPreviousQuestion"/>
+        <Button x:Name="SettingsButton" Content="Настройки" HorizontalAlignment="Left" Margin="10,592,0,0" VerticalAlignment="Top" Width="137" Height="51" Click="SettingsButton_Click"/>
     </Grid>
 </Window>
