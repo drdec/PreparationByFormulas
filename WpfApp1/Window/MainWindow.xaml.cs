@@ -17,10 +17,12 @@ namespace WpfApp1
 
         private WorkWithData _workWithData;
         private WorkWithImage _workWithImage;
+        private int cz;
 
         public MainWindow()
         {
             Inizialize();
+            cz = 0;
 
             //InitializeComponent();
 
@@ -129,6 +131,10 @@ namespace WpfApp1
             img.Visibility = Visibility.Collapsed;
         }
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            cz++;
+            CzTextBox.Text = cz.ToString();
+        }
     }
 }
